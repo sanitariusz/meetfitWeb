@@ -1,0 +1,11 @@
+{
+  "name": "meetfit",
+  "version": "0.0.1",
+  "description": "meetfit app",
+  "main": "app.js",
+  "author": "Marcin Bartoszyk",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3"
+  }
+}
