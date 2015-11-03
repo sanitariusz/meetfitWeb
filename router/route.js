@@ -1,9 +1,9 @@
 module.exports = function(app)
 {
 	app.get('/',function(req, res){
-		res.render('index.html',{title: "Strona główna", description: "description of page"});
+		res.render('index.html');
 	});
-	app.get('/about', function(req,res){
-		res.render('about.html');
+	app.get('/login', function(req,res){
+		res.render('user/login.html');
 	});
 }
