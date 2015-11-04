@@ -1,6 +1,11 @@
-<% layout('layout.html') -%>
-<form>
-	<input name="username" type="text" />
-	<input name="password" type="password" />
-	<button type="submit">Login</button>
-</form>
+{% extends "layout.html" %}
+
+{% block body %}
+<section>
+	<form id="login-form">
+		<input name="nick" type="text" />
+		<input name="password" type="password" />
+		<button type="submit">Login</button>
+	</form>
+</section>
+{% endblock %}

@@ -2,10 +2,20 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock %}</title>
-	<meta name="descritpion" content="<%= description %>">
+	<meta name="descritpion" content="{% block metadescr %}{% endblock %}">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
+	{% block header%}
+	{% endblock %}
 	{% block body %}
 	{% endblock %}
+	{% block footer %}
+	{% endblock %}
+<script src="/js/jquery.js" ></script>
+<script src="/js/bootstrap.js" ></script>
+<script src="/js/masonry.js" ></script>
+<script src="/js/main.js" ></script>
 </body>
 </html>
