@@ -3,36 +3,45 @@ var main = {
 		this._registration();
 		this._applogin();
 	},
-	_callAjax: function (url, type, data){
+	_callAjax: function (url, type, content, data, datatype){
+		console.log(data);
 	     $.ajax({
 	        url: url,
 	        type: type,
-	        content: 'application/json',
+	        content: content,
 	        data: data,
-	        dataType: 'json',
-	        success: function(json){
-	        	console.log(json)
+	        dataType: datatype,
+	        success: function(ans){
+	        	var data = JSON.parse(ans);
+	        	console.log(data)
 	        }
 	    }); 
+	},
+	_getformdata: function(element){
+	    var unindexed_array = element.serializeArray();
+	    var indexed_array = {};
+
+	    $.map(unindexed_array, function(n, i){
+	        indexed_array[n['name']] = n['value'];
+	    });
+
+	    return indexed_array;
 	},
 	_registration: function(){
 		$('#register-form').submit(function(event) {
 			event.preventDefault();
 			main._callAjax(
 				'http://139.162.130.192:9292/api/v1/users', 
-				'POST', 
-				$(this).serialize()
+				'POST',
+				'application/json',
+				main._getformdata($(this)),
+				'json'
 				);
 		});
 	},
 	_applogin: function(){
 		$('#login-form').submit(function(event) {
-			event.preventDefault();
-			main._callAjax(
-				'http://139.162.130.192:9292/oauth/token',
-				'POST',
-				$(this).serialize() + '&grant_type=password'
-				);
+			
 		});
 	}
 }
