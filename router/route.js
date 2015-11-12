@@ -1,10 +1,15 @@
-module.exports = function(app, http, bodyparser)
-{var urlencodedParser = bodyparser.urlencoded({ extended: false })
+module.exports = function(app, http, querystring)
+{
+	
+
 	app.get('/',function(req, res){
 		res.render('index.html');
 	});
-	app.get('/home',function(req, res){
-		res.render('home.html');
+	app.get('/sports',function(req, res){
+		res.render('sporty.html');
+	});
+	app.get('/events',function(req, res){
+		res.render('evets.html');
 	});
 	app.get('/login', function(req,res){
 		res.render('user/login.html');
@@ -12,29 +17,41 @@ module.exports = function(app, http, bodyparser)
 	app.get('/register', function(req,res){
 		res.render('user/register.html');
 	});
-	app.post('/login', urlencodedParser, function(req,res){
-		console.log(req.body)
-		var options = {
-		  host: '139.162.130.192',
-		  port: 9292,
-		  path: '/oauth/token',
-		  method: 'POST',
-		  headers: {
-		    'Content-Type': 'multipart/form-data'
-		  }
-		};
 
-		var req2 = http.request(options, function(res2) {
-		  console.log('STATUS: ' + res2.statusCode);
-		  console.log('HEADERS: ' + JSON.stringify(res2.headers));
-		  res2.setEncoding('utf8');
-		  res2.on('data', function (chunk) {
-		    console.log('BODY: ' + chunk);
+	app.post('/login', function(req,res){
+
+		var data = JSON.stringify({
+			"username":"maro.barto@gmail.com",
+			"password":"qwer1234",
+			"grant_type":"password"
+		});
+		console.log(data)
+		var options = {
+		      hostname: '139.162.130.192',
+		      port: 9292,
+		      path: '/oauth/token',
+		      method: 'POST',
+		      headers: {
+		      	'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36',
+		              'Content-Type': 'application/json'
+		          }
+		        };
+
+		var req = http.request(options, function(res) {
+		  console.log('Status: ' + res.statusCode);
+		  console.log('Headers: ' + JSON.stringify(res.headers));
+		  res.setEncoding('utf8');
+		  res.on('data', function (body) {
+		        console.log(body);
 		  });
 		});
-		req2.on('error', function(e){console.log(e.message);})
-		req2.write("username=maro.barto@gmail.com&password=qwer1234&grand_type=password")
-		req2.end();
-		res.redirect('/login');
+		req.on('error', function(e) {
+		  console.log('problem with request: ' + e.message);
+		});
+		req.writeHead('200');
+		req.write('{"username":"maro.barto@gmail.com","password":"qwer1234","grant_type":"password"}');
+		req.end();
+		
+
 	});
 }

@@ -1,0 +1,25 @@
+.icons-styles {
+	width:30px;
+	height:30px;
+	display:block;
+	background-repeat:no-repeat;
+}
+
+.event-ico {
+	@extend .icons-styles;
+	background-image:url('../img/event-participate.png');
+}
+
+.people-ico {
+	@extend .icons-styles;
+	background-image:url('../img/people-counter.png');
+}
+
+.share-ico {
+	@extend .icons-styles;
+	background-image:url('../img/share.png');
+}
+.location-ico {
+	@extend .icons-styles;
+	background-image:url('../img/localization.png');
+}

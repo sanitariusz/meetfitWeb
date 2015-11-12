@@ -1,11 +1,16 @@
 var express    =    require('express');
 var app        =    express();
 var nunjucks   =    require('nunjucks');
-var bodyparser = require('body-parser');
-var http = require('http');
+var bodyparser = 	require('body-parser');
+var http 	   = 	require('http');
+var querystring =   require('querystring');
 
-require('./router/route')(app,http, bodyparser);
+
+
 app.use(express.static(__dirname + '/public'));
+app.use(bodyparser.urlencoded({ extended: false }));
+
+require('./router/route')(app, http, bodyparser, querystring);
 
 nunjucks.configure('views', {
     autoescape: true,
