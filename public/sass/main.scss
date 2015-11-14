@@ -15,7 +15,9 @@ body {
 .see-all {
 	font-family:$regular;
 	font-size:15px;
+	display:inline-block;
 	color:#888888;
+	margin-top:20px;
 }
 
 .main-header {
@@ -54,9 +56,66 @@ body {
 		}
 	}
 	.header-user {
-		.user-profile-img {
-			width: 42px;
-			height: 42px;
+		.menu-triangle {
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			top: -7px;
+			right: 15px;
+			border-top: 7px solid red;
+			border-right: 7px solid #ffffff;
+			border-bottom: 8px solid #ffffff;
+			border-left: 8px solid red;
+			@include transform-rotate(45deg);
+		}
+		.user-notifications {
+			position: relative;
+			z-index: 1000;
+			.notifications-img {
+				cursor:pointer;
+			}
+			.notifications-menu {
+				display:none;
+				position: absolute;
+				top: 51px;
+				right:-7px;
+				.notifications-list {
+					width:300px;
+					list-style: none;
+					background:#ffffff;
+					border:1px solid #ececec;
+					li {
+						line-height: 50px;
+					}
+				}
+			}
+		}
+		.user-profile {
+			margin-top: 10px;
+			position: relative;
+			.user-profile-img {
+				width: 25px;
+				height: 25px;
+				background:red;
+				border-radius:50%;
+				overflow: hidden;
+				cursor:pointer;
+			}
+			.user-menu{
+				display:none;
+				position: absolute;
+				z-index: 1000;
+				top: 41px;
+				left: -60px;
+				.user-menu-list {
+					list-style: none;
+					background:#ffffff;
+					border:1px solid #ececec;
+					li {
+						padding:15px;
+					}
+				}
+			}
 		}
 	}
 }
