@@ -1,3 +1,20 @@
+$regular: "LatoWeb";
+$medium: "LatoWebMedium";
+$bold: "LatoWebBold";
+$black: "LatoWebBlack";
+$heavy: "LatoWebHeavy";
+$light: "LatoWebLight";
+$thin: "LatoWebThin";
+
+// colors
+
+$body:#f6f6f6;
+$body-text:#2d2d2d;
+
+$home-color:#ffffff;
+$home-fill:#00b8a5;
+$home-text:$body-text;
+
 .icons-styles {
 	width:30px;
 	height:30px;
@@ -22,4 +39,28 @@
 .location-ico {
 	@extend .icons-styles;
 	background-image:url('../img/localization.png');
+}
+
+h2 {
+	font-family:$heavy;
+	font-size:32px;
+	margin:0 auto;
+}
+
+h3 {
+	font-family:$black;
+	font-size:27px;
+	margin:0 auto 30px;
+}
+
+@mixin transform-rotate($a){
+	transform:rotate($a);
+	-webkit-transform:rotate($a);
+	-moz-transform:rotate($a);
+}
+
+@mixin transition-all($tr){
+	transition:$tr;
+	-webkit-transition:$tr;
+	-moz-transition:$tr;
 }

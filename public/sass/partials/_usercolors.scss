@@ -1,0 +1,33 @@
+$def-text-white:#ffffff;
+$user-woman-1:#dd357f;
+
+
+.user-w-1 {
+	// events
+	&.home-event-box {
+		background:$user-woman-1;
+		.event-info {
+			.event-calendar{
+				background:$def-text-white;
+				.calendar-date {
+					color: $def-text-white;
+					background:$user-woman-1;
+				}
+				.calendar-time {
+					color:$user-woman-1;
+				}
+			}
+			.event-descr {
+				color:$def-text-white;
+			}
+		}
+		.event-bottom {
+			color:$def-text-white;
+		}
+	}
+}
+
+
+
+
+

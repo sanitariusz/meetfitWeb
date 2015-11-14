@@ -1,8 +1,21 @@
 @import 'partials/reset';
+@import 'partials/typography';
 @import 'partials/base';
+@import 'partials/usercolors';
+
+* {
+	@include transition-all(all .5s ease);
+}
 
 body {
-	background:#f6f6f6;
+	background:$body;
+	color:$body-text
+}
+
+.see-all {
+	font-family:$regular;
+	font-size:15px;
+	color:#888888;
 }
 
 .main-header {
@@ -17,6 +30,7 @@ body {
 	.header-category {
 		font-size:0;
 		.category-item {
+			font-family: $medium;
 			width:125px;
 			height: 40px;
 			font-size: 16px;
@@ -30,6 +44,7 @@ body {
 			img {
 				display:inline-block;
 				vertical-align: middle;
+				margin-top: -7px;
 			}
 			.category-info {
 				display:inline-block;
@@ -46,6 +61,115 @@ body {
 	}
 }
 
+.box-upper {
+	width: 100%;
+	height: 230px;
+	background: url('../img/img-jakies.jpg');
+	position: relative;
+	z-index: -200;
+	.sport-category {
+		padding:5px 15px;
+		position: absolute;
+		top:10px;
+		right:0;
+		background:#1bb24b;
+		color:#ffffff;
+	}
+}
+
+.box-bottom {
+	width: 100%;
+	position: relative;
+	margin-top: -20px;
+	&:before {
+		position: absolute;
+		content:"";
+		width: 390px;
+		height: 250px;
+		left:-15px;
+		background:url('/img/background-events.jpg') ;
+		@include transform-rotate(-5deg);
+		z-index: -100;
+	}
+}
+.event-info {
+	height: 165px;
+	font-size: 0;
+	padding:15px 10px 0 10px;
+	.event-calendar {
+		width: 83px;
+		height: 111px;
+		background: #1bb24b;
+		display: inline-block;
+		padding:5px;
+		font-size: 16px;
+		text-align:center;
+		margin-top: 15px;
+		vertical-align: top;
+		.calendar-date {
+			font-family: $heavy;
+			font-size: 16px;
+			background:#ffffff;
+			color:#1bb24b;
+			height: 70px;
+			padding-top:5px;
+			span {
+				font-size: 44px;
+			}
+		}
+		.calendar-time {
+			font-family: $regular;
+			font-size: 20px;
+			color:#ffffff;
+			padding:8px;
+		}
+	}
+	.event-descr{
+		width: 100%;
+		max-width: 260px;
+		font-size: 16px;
+		display: inline-block;
+		background:transparent;
+		padding-left:10px;
+		vertical-align: top;
+		margin-top: 15px;
+		h4 {
+			font-family:$heavy;
+			font-size: 22px;
+			margin-bottom: 15px;
+			vertical-align: top;
+		}
+		.event-address {
+
+		}
+	}
+}
+.event-bottom {
+	padding:15px;
+	font-size: 0;
+	width: 100%;
+	height:auto;
+	.icon {
+		font-size:16px;
+		display: inline-block;
+		padding-left:33px;
+		padding-top: 6px;
+		vertical-align: middle;
+		&:first-of-type{
+			width:130px;
+		}
+		&:nth-of-type(2){
+			width:80px;
+		}
+		&:last-of-type{
+			width:120px;
+		}
+	}
+}
+
+
+
+
 .search-box {
 	background:#1bbda9;
 	line-height:40px;
@@ -57,6 +181,168 @@ body {
 		font-size: 40px;
 	}
 }
+
+.home-section {
+	margin-top:50px;
+}
+.profile-box {
+	width:100%;
+	max-width: 380px;
+	height: 100%;
+	max-height: 140px;
+	background:#dd357f;
+	padding:19px;
+	color:#ffffff;
+	margin-bottom: 30px;
+	border:1px solid #ececec;
+	.profile-img {
+		width: 95px;
+		height: 95px;
+		display: inline-block;
+		vertical-align: top;
+		background:red;
+		border-radius: 50%;
+		border:1px solid #ffffff;
+	}
+	.profile-desc {
+		width: 220px;
+		height: 110px;
+		display: inline-block;
+		vertical-align: top;
+		padding-left:10px;
+		span {
+			font-family: $light;
+		}
+	}
+}
+.new-assigns {
+	width: 100%;
+	max-width: 380px;
+	height: 100%;
+	max-height: 460px;
+	background:rgba(232,232,232,0.6);
+	margin-bottom: 30px;
+	border:1px solid #ececec;
+}
+.new-persons {
+	width: 100%;
+	max-width: 380px;
+	height: 100%;
+	max-height: 440px;
+	margin-bottom: 30px;
+	border:1px solid #ececec;
+	.new-persons-h3 {
+		font-family:$regular;
+		margin:0 auto;
+	}
+}
+.my-events, .new-events {margin:0 auto 40px;}
+.home-event-box {
+	width:100%;
+	max-width: 320px;
+	height:100%;
+	background:$home-color;
+	padding:15px;
+	border:1px solid #ececec;
+	.event-info {
+		padding:0;
+		.event-calendar{
+			background:$home-fill;
+			.calendar-date {
+				color: $home-fill;
+				background:$home-color;
+			}
+			.calendar-time {
+				color:$home-color;
+			}
+		}
+		.event-descr {
+			max-width: 205px;
+			color:$home-text;
+		}
+	}
+	.event-bottom {
+		padding:0;
+		color:$home-text;
+		>div{
+			width:50%;
+		}
+		> div:last-of-type {
+			text-align: right;
+			padding-left:0;
+			padding-right:33px;
+			background-position:right;
+		}
+	}
+}
+.fit-box {
+	background:#ffffff;
+	padding:19px;
+	border:1px solid #ececec;
+	.fit-user {
+		.fit-picture {
+			width:60px;
+			height: 60px;
+			border:2px solid blue;
+			border-radius:50px;
+			background:red;
+			overflow: hidden;
+			display:inline-block;
+			vertical-align: middle;
+
+		}
+		.fit-info {
+			width: 255px;
+			display:inline-block;
+			vertical-align: middle;
+			padding-left:15px;
+			font-family: $regular;
+			font-size: 16px;
+			.bolded {
+				font-family: $heavy;
+			}
+		}
+	}
+	.fit-content {
+		margin-top: 10px;
+		.box-upper {
+			height: 200px;
+			background-size:100%;
+			z-index: 0;
+		}
+		.box-bottom{
+			z-index: 0;
+			&:before {
+				width:100%;
+				height: 100%;
+				background:#ffffff !important;
+				@include transform-rotate(0deg);
+				left:0;
+			}
+			.event-info {
+				height: 200px;
+				padding:0;
+				.event-descr {
+					max-width: 235px;
+				}
+			}
+			.event-bottom {
+				padding:0;
+				> div{
+					width:50%;
+				}
+				> div:last-of-type {
+					text-align: right;
+					background-position: right;
+					padding-left: 0;
+					padding-right: 33px;
+				}
+			}
+		}
+	}
+}
+
+
 
 .sports-section {
 	margin-top:30px;
@@ -91,7 +377,7 @@ body {
 					position: absolute;
 					bottom:-20px;
 					left:-10px;
-					transform: rotate(-5deg);
+					@include transform-rotate(-5deg);
 				}
 			}
 
@@ -105,112 +391,18 @@ body {
 		margin-top:30px;
 		font-size:0;
 		.event-box {
-			width: 365px;
-			height: 435px;
+			width:100%;
+			max-width: 365px;
+			height:100%;
+			max-height: 435px;
 			font-size:16px;
 			border:1px solid #ececec;
 			display: inline-block;
 			margin: 0 21px 21px 0;
 			overflow: hidden;
 			vertical-align: top;
-			.box-upper {
-				width: 100%;
-				height: 230px;
-				background: url('../img/img-jakies.jpg');
-				position: relative;
-				z-index: -200;
-				.sport-category {
-					padding:5px 15px;
-					position: absolute;
-					top:10px;
-					right:0;
-					background:#1bb24b;
-					color:#ffffff;
-				}
-			}
-			.box-bottom {
-				width: 100%;
-				height: 220px;
-				position: relative;
-				margin-top: -20px;
-				&:before {
-					position: absolute;
-					content:"";
-					width: 390px;
-					height: 250px;
-					left:-15px;
-					background:url('/img/background-events.jpg') ;
-					transform: rotate(-5deg);
-					z-index: -100;
-				}
-				.event-info {
-					height: 165px;
-					font-size: 0;
-					padding:15px 10px 0 10px;
-					.event-calendar {
-						width: 83px;
-						height: 111px;
-						background: #1bb24b;
-						display: inline-block;
-						padding:5px;
-						font-size: 16px;
-						text-align:center;
-						margin-top: 15px;
-						vertical-align: top;
-						.calendar-date {
-							font-size: 16px;
-							background:#ffffff;
-							color:#1bb24b;
-							height: 70px;
-							span {
-								font-size: 44px;
-							}
-						}
-						.calendar-time {
-							font-size: 20px;
-							color:#ffffff;
-						}
-					}
-					.event-descr{
-						width: 260px;
-						font-size: 16px;
-						display: inline-block;
-						background:transparent;
-						padding-left:10px;
-						vertical-align: top;
-						margin-top: 15px;
-						h4 {
-							font-size: 22px;
-							margin-bottom: 15px;
-							vertical-align: top;
-						}
-						.event-address {
-
-						}
-					}
-				}
-				.event-bottom {
-					padding:15px;
-					font-size: 0;
-					width: 100%;
-					.icon {
-						font-size:16px;
-						display: inline-block;
-						padding-left:33px;
-						padding-top: 6px;
-						vertical-align: middle;
-						&:first-of-type{
-							width:130px;
-						}
-						&:nth-of-type(2){
-							width:80px;
-						}
-						&:last-of-type{
-							width:120px;
-						}
-					}
-				}
-			}
 		}
 	}
 }
+
+
