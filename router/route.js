@@ -17,7 +17,15 @@ module.exports = function(app, http, querystring)
 	app.get('/register', function(req,res){
 		res.render('user/register.html');
 	});
-
+	app.get('/people', function(req,res){
+		res.render('people.html');
+	});
+	app.get('/messages', function(req,res){
+		res.render('messages.html');
+	});
+	app.get('/sport-single', function(req,res){
+		res.render('sport_single.html');
+	});
 	app.post('/login', function(req,res){
 
 		var data = JSON.stringify({

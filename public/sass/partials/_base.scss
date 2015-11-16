@@ -10,6 +10,7 @@ $thin: "LatoWebThin";
 
 $body:#f6f6f6;
 $body-text:#2d2d2d;
+$border-color:#ececec;
 
 $home-color:#ffffff;
 $home-fill:#00b8a5;
@@ -20,6 +21,7 @@ $home-text:$body-text;
 	height:30px;
 	display:block;
 	background-repeat:no-repeat;
+	background-size:100% 100%;
 }
 
 .event-ico {
@@ -40,6 +42,29 @@ $home-text:$body-text;
 	@extend .icons-styles;
 	background-image:url('../img/localization.png');
 }
+.ico-fit-w {
+	@extend .icons-styles;
+	background-image:url('../img/fit-white.png');
+}
+.ico-ppl-w {
+	@extend .icons-styles;
+	background-image:url('../img/ppl-white.png');
+}
+.ico-pic-w {
+	@extend .icons-styles;
+	background-image:url('../img/pictures-white.png');
+}
+.ico-som-w {
+	@extend .icons-styles;
+	background-image:url('../img/dontknow.png');
+}
+
+h1 {
+	font-family:$black;
+	font-size:36px;
+	margin:0 auto 20px;
+	display:inline-block;
+}
 
 h2 {
 	font-family:$heavy;
@@ -51,6 +76,12 @@ h3 {
 	font-family:$black;
 	font-size:27px;
 	margin:0 auto 30px;
+}
+
+h4 {
+	font-family:$heavy;
+	font-size:30px;
+	margin:0 auto 10px;
 }
 
 @mixin transform-rotate($a){

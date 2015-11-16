@@ -1,6 +1,7 @@
 var main = {
 	init: function(){
 		this._userMenu();
+		this._eventBottom();
 	},
 	_callAjax: function (url, type, content, data, datatype){
 		console.log(data);
@@ -28,6 +29,20 @@ var main = {
 				$('#user-menu').hide();
 			}
 			$('#notifications-menu').toggle();
+		});
+	},
+	_eventBottom:function(){
+		$('.event-bottom').each(function(index, el) {
+			var childs = $(this).find('.icon');
+			var w = 100 / childs.length;
+			if(childs.length == 2){
+				childs.css('width', w+'%');	
+			}else {
+				childs.css({
+					width: w+'%',
+					textAlign: 'center'
+				});
+			}
 		});
 	}
 }
